@@ -4,16 +4,16 @@ import { useState, useCallback } from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
-  width: '400px',
-  height: '400px'
+  width: '100%',
+  height: '100%'
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+  lat: 	51.5072,
+  lng: -0.1275
 };
 
-export default function MapWrapper() {
+export default function MapWrapper(props) {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyCr4V-0djcJFluBbFKnJ0K5OicMPkyDo1I"
@@ -23,19 +23,21 @@ export default function MapWrapper() {
 
   const onLoad = useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
+    //const bounds = new window.google.maps.LatLngBounds(center);
+    //map.fitBounds(bounds);
 
     setMap(map)
 
     const marker = new google.maps.Marker({
-      position: center,
+      position: props.goal,
       map,
       title: "Click to zoom",
     });
     marker.addListener("click", () => {
-      map.setZoom(8);
+      props.setFound(true)
     });
+
+    setMap(map)
   }, [])
 
   const onUnmount = useCallback(function callback(map) {
@@ -45,11 +47,11 @@ export default function MapWrapper() {
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
-      center={center}
-      zoom={10}
+      center={props.center}
+      zoom={15}
       onLoad={onLoad}
       onUnmount={onUnmount}
-      options={{ zoomControl: false, scrollwheel: false}}
+      options={{ zoomControl: true, scrollwheel: true}}
     >
       { /* Child components, such as markers, info windows, etc. */ }
       <></>
