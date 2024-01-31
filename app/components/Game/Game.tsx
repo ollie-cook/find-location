@@ -51,10 +51,10 @@ export default function Game(props: GameProps) {
 
   return (
     <>
-      <div className="relative flex flex-col items-center w-1/2 ">
+      <div className="relative flex flex-col items-center mt-8 w-11/12 sm:mt-0 lg:w-5/6 xl:w-2/3 2xl:w-1/2">
         <p className="absolute bottom-1 left-1 text-sm">Timer: <span className="text-xl font-semibold font-mono">{time.toFixed(1)}</span> seconds</p>
         <h2>Find the station: <span className="text-lg font-bold">{props.name}</span></h2>
-        <p className="text-sm">Click on the red marker <FaLocationDot className="inline mb-1" style={{color: 'red'}} /> when you find it</p>
+        <p className="text-sm mb-10 sm:mb-0">Click on the red marker <FaLocationDot className="inline mb-1" style={{color: 'red'}} /> when you find it</p>
         <button 
           className="absolute bottom-1 right-1 px-1 py-0.5 rounded-md bg-[#fecd00] hover:bg-[#cca300]"
           onClick={refresh}
@@ -63,13 +63,13 @@ export default function Game(props: GameProps) {
           <IoIosRefresh className="inline mb-0.5 ml-1" />
         </button>
       </div>
-      <div className="relative w-1/2 h-[70vh] mt-2">
+      <div className="relative w-11/12 h-[70vh] mt-2 lg:w-5/6 xl:w-2/3 2xl:w-1/2">
         <Map center={props.center} goal={props.goal} setFound={(value: boolean) => setFound(value)}/>
         {
           found == true && (
-            <div className="absolute rounded-lg left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col justify-center items-center h-1/3 w-1/2 bg-lime-600 ">  
+            <div className="absolute rounded-lg left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col justify-center items-center h-1/3 w-3/4 sm:w-1/2 bg-lime-600 ">  
               <p>Well done!</p>
-              <p>You found <span className="text-lg font-bold">{props.name}</span> in {time.toFixed(1)} seconds</p>
+              <p className="text-center">You found <span className="text-lg font-bold">{props.name}</span> in {time.toFixed(1)} seconds</p>
               <button 
                 className="px-1 py-0.5 mt-2 rounded-md bg-orange-300 hover:bg-orange-400"
                 onClick={refresh}
