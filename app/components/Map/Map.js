@@ -48,10 +48,10 @@ export default function MapWrapper(props) {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={props.center}
-      zoom={15}
+      zoom={17}
       onLoad={onLoad}
       onUnmount={onUnmount}
-      options={{ zoomControl: true, scrollwheel: true, mapTypeControl: false, streetViewControl: false, fullscreenControl: false}}
+      options={{ zoomControl: false, scrollwheel: false, mapTypeControl: false, streetViewControl: false, fullscreenControl: false}}
     >
       { /* Child components, such as markers, info windows, etc. */ }
       <></>
