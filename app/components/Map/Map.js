@@ -16,7 +16,7 @@ const center = {
 export default function MapWrapper(props) {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyCr4V-0djcJFluBbFKnJ0K5OicMPkyDo1I"
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
   })
 
   const [map, setMap] = useState(null)
