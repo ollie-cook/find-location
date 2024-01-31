@@ -2,6 +2,7 @@ import Map from "./components/Map";
 import Game from "./components/Game"
 import newTubeStations from "@/app/utils/newTubeStations";
 
+export const dynamic = 'force-dynamic'
 
 export default function Home() {
   let startIndex = Math.floor(Math.random() * newTubeStations.length);
