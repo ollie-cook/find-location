@@ -51,7 +51,7 @@ export default function MapWrapper(props) {
       zoom={15}
       onLoad={onLoad}
       onUnmount={onUnmount}
-      options={{ zoomControl: true, scrollwheel: true}}
+      options={{ zoomControl: true, scrollwheel: true, mapTypeControl: false, streetViewControl: false, fullscreenControl: false}}
     >
       { /* Child components, such as markers, info windows, etc. */ }
       <></>
