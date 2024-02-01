@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <main className="relative flex flex-col justify-center items-center min-h-screen">
-      <h1 className="absolute top-2 text-4xl font-bold text-[#112d81] sm:text-6xl">Tfl Locate</h1>
+      <h1 className="absolute top-2 text-4xl font-bold text-[#112d81] sm:text-6xl">TfL Locate</h1>
       <Game name={newTubeStations[goalIndex].properties.name} center={startCoords} goal={goalCoords}/>
     </main>
   );
